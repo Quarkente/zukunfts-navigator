@@ -100,7 +100,7 @@ def step_0_welcome():
         
         if st.button("🚀 Los geht's!", type="primary", use_container_width=True):
             st.session_state.current_step = 1
-            st.experimental_rerun()
+            st.rerun()
 
 def step_1_personal_data():
     """Persönliche Daten erfassen"""
@@ -132,7 +132,7 @@ def step_1_personal_data():
                 'situation': situation
             })
             st.session_state.current_step = 2
-            st.experimental_rerun()
+            st.rerun()
         else:
             st.error("Bitte gib mindestens deinen Namen an!")
 
@@ -593,7 +593,7 @@ def step_7_results():
             # Reset alles
             for key in list(st.session_state.keys()):
                 del st.session_state[key]
-            st.experimental_rerun()
+            st.rerun()
     
     # Feedback
     st.markdown("---")
@@ -613,7 +613,7 @@ def main():
             if st.button("⬅️ Zurück"):
                 if st.session_state.current_step > 0:
                     st.session_state.current_step -= 1
-                    st.experimental_rerun()
+                    st.rerun()
         
         st.markdown("---")
         st.markdown("### ℹ️ Info")
@@ -650,4 +650,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
